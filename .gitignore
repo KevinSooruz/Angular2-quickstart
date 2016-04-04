@@ -1,0 +1,9 @@
+# http://stackoverflow.com/questions/10744305/how-to-create-gitignore-file
+# Ignorer dossiers
+node_modules/
+specs/node_modules/
+typings/
+specs/typings/
+
+# Ignorer fichiers
+.brackets.json
