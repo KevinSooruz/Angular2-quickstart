@@ -2,14 +2,12 @@
   "name": "angular2-quickstart",
   "version": "1.0.0",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run tsc:w\" \"npm run lite\" \"npm run gulp\" ",
+    "start": " \"npm run lite\" ",
     "tsc": "tsc",
-    "tsc:w": "tsc -watch",
+    "tsc:w": "tsc -w",
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install",
-    "gulp": "gulp watch",
-    "libs": "gulp libs"
+    "postinstall": "typings install"
   },
   "license": "ISC",
   "dependencies": {
@@ -22,11 +20,6 @@
   },
   "devDependencies": {
     "concurrently": "^2.0.0",
-    "del": "^2.2.0",
-    "gulp": "^3.9.1",
-    "gulp-less": "^3.0.5",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-plumber": "^1.1.0",
     "jasmine-core": "^2.4.1",
     "lite-server": "^2.1.0",
     "typescript": "^1.8.9",

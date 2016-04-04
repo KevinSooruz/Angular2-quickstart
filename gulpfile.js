@@ -39,8 +39,18 @@ Copy all resources that are not TypeScript files into Dist directory
 ***************************************************************************************/
 gulp.task("resources", () => {
     
-    return gulp.src(["src/**/*", "!**/*.ts", "!src/{css,css}/**"])
-        .pipe(gulp.dest("dist"))
+    return gulp.src(["src/**/*", "!**/*.ts", "!**/*.spec.js", "!src/{css,css}/**"])
+        .pipe(gulp.dest("dist"));
+    
+});
+
+/***************************************************************************************
+Copy all units tests that are not TypeScript files into Specs directory
+***************************************************************************************/
+gulp.task("unitsTests", () => {
+    
+    return gulp.src(["src/app/*.js", "src/app/**/*.js"])
+        .pipe(gulp.dest("specs/units"));
     
 });
 
@@ -67,7 +77,7 @@ gulp.task("libs", () => {
 /***************************************************************************************
 Build the project
 ***************************************************************************************/
-gulp.task("build", ["resources", "less", "libs"], () => {
+gulp.task("build", ["resources", "less", "libs", "unitsTests"], () => {
     
     console.log("Building the project ...");
     
@@ -79,6 +89,7 @@ Gulp watch
 gulp.task("watch", () => {
     
     gulp.watch("src/css/src/*.less", ["less"]);
+    gulp.watch("src/**/*.spec.js", ["unitsTests"]);
     gulp.watch("src/**/*", ["resources"]);
     
 });
